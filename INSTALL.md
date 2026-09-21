@@ -1,18 +1,70 @@
 # Install
 
-`show-me-dont-tell-me` is a single skill. Three ways to get it.
+`show-me-dont-tell-me` is a single skill. Pick the route that matches where you use Claude.
+
+| You use | Go to |
+|---|---|
+| Claude Desktop (Mac / Windows) | [§1](#1-claude-desktop) |
+| claude.ai in a browser | [§2](#2-claudeai-in-a-browser) |
+| Claude Code (CLI, IDE, or inside the desktop app) | [§3](#3-claude-code--plugin-marketplace) |
 
 ---
 
-## 1. Claude (web / desktop app)
+## 1. Claude Desktop
 
-Ask Claude to add it, pasting the contents of [`skills/show-me-dont-tell-me/SKILL.md`](skills/show-me-dont-tell-me/SKILL.md):
+### a. Upload the skill — recommended
 
-> Add this as a skill named `show-me-dont-tell-me`: <paste the file>
+Package the skill folder as a `.zip` first.
 
-Claude shows a review card. Save it. Invoke with `/show-me-dont-tell-me`.
+macOS / Linux:
 
-## 2. Claude Code — plugin marketplace
+```bash
+git clone https://github.com/MyKhalijAi/show-me-dont-tell-me.git
+cd show-me-dont-tell-me/skills
+zip -r show-me-dont-tell-me.zip show-me-dont-tell-me
+```
+
+Windows (PowerShell):
+
+```powershell
+git clone https://github.com/MyKhalijAi/show-me-dont-tell-me.git
+Set-Location show-me-dont-tell-me\skills
+Compress-Archive -Path show-me-dont-tell-me -DestinationPath show-me-dont-tell-me.zip
+```
+
+Then, in Claude Desktop:
+
+1. Open **Settings → Capabilities → Skills**
+2. **Upload skill**, and pick `show-me-dont-tell-me.zip`
+3. Turn the skill **on** once it appears in the list
+
+The zip must contain the **folder**, with `SKILL.md` at its root — not the `.md` file on its own. That is the most common reason an upload is rejected.
+
+Skills require a paid plan. On Team and Enterprise, an administrator has to enable Skills for the workspace before the section appears.
+
+### b. Paste it instead — no zip
+
+Open the raw [`SKILL.md`](skills/show-me-dont-tell-me/SKILL.md), copy everything, and tell Claude:
+
+> Add this as a skill named `show-me-dont-tell-me`: &lt;paste the file&gt;
+
+Claude shows a review card. Save it.
+
+### c. Through Claude Code inside the desktop app
+
+Claude Code also runs inside Claude Desktop. If that is how you work, use the marketplace commands in [§3](#3-claude-code--plugin-marketplace) — they apply unchanged.
+
+### Then
+
+Invoke it with `/show-me-dont-tell-me`, or just describe what you need — the skill triggers on its own when a request involves documenting, guiding through, or troubleshooting an interface.
+
+For the skill to see a live screen rather than a pasted image, enable **computer use** in the desktop app, or install the Claude in Chrome extension for browser pages. See [Prerequisites for screenshots](#prerequisites-for-screenshots) below.
+
+## 2. claude.ai in a browser
+
+Same two routes as the desktop app: **Settings → Capabilities → Skills → Upload skill** with the zip built above, or paste the contents of [`SKILL.md`](skills/show-me-dont-tell-me/SKILL.md) into a conversation and ask Claude to save it as a skill.
+
+## 3. Claude Code — plugin marketplace
 
 ```bash
 claude plugin marketplace add MyKhalijAi/show-me-dont-tell-me
@@ -25,7 +77,7 @@ Verify:
 claude plugin list
 ```
 
-## 3. Claude Code — manual
+## 4. Claude Code — manual
 
 ```bash
 git clone https://github.com/MyKhalijAi/show-me-dont-tell-me.git
@@ -78,8 +130,12 @@ If none is available the skill says so and asks for a screenshot. It does not gu
 
 ## Uninstall
 
+**Claude Desktop and claude.ai** — **Settings → Capabilities → Skills**, then switch `show-me-dont-tell-me` off to keep it for later, or delete it to remove it outright.
+
+**Claude Code, installed as a plugin:**
+
 ```bash
 claude plugin uninstall show-me-dont-tell-me
 ```
 
-Or delete `~/.claude/skills/show-me-dont-tell-me/`. For the Claude app, remove the skill from your skills settings.
+**Claude Code, installed manually** — delete `~/.claude/skills/show-me-dont-tell-me/`.
