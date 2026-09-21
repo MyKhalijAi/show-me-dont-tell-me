@@ -1,0 +1,14 @@
+{
+  "name": "show-me-dont-tell-me",
+  "owner": {
+    "name": "Dr Maher",
+    "email": "mykhalijai@gmail.com"
+  },
+  "plugins": [
+    {
+      "name": "show-me-dont-tell-me",
+      "source": "./",
+      "description": "Claude describes the button. This makes it point at the button."
+    }
+  ]
+}

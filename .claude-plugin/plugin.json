@@ -1,0 +1,15 @@
+{
+  "name": "show-me-dont-tell-me",
+  "version": "2.0.0",
+  "description": "Claude describes the button. This makes it point at the button. Step-by-step tutorials and live assistance from annotated screenshots: numbered markers, arrows, zoom, mandatory redaction.",
+  "author": {
+    "name": "Dr Maher",
+    "email": "mykhalijai@gmail.com",
+    "url": "https://github.com/MyKhalijAi"
+  },
+  "homepage": "https://github.com/MyKhalijAi/show-me-dont-tell-me",
+  "repository": "https://github.com/MyKhalijAi/show-me-dont-tell-me",
+  "license": "MIT",
+  "keywords": ["claude-skill","claude-code","tutorial","documentation","screenshot","annotation","onboarding","accessibility","rtl"],
+  "skills": ["./skills/show-me-dont-tell-me"]
+}
